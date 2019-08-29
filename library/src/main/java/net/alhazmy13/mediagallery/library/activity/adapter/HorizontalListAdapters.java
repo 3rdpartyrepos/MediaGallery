@@ -16,6 +16,7 @@ import net.alhazmy13.mediagallery.library.R;
 import net.alhazmy13.mediagallery.library.Utility;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -53,7 +54,7 @@ public class HorizontalListAdapters extends RecyclerView.Adapter<HorizontalListA
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         String o = mDataset.get(holder.getAdapterPosition());
         boolean isValidImage;
-        if (Utility.isValidURL(o)) {
+        if (Utility.isValidURL(o) || new File(o).exists()) {
             Glide.with(mContext)
                     .load(String.valueOf(o))
                     .placeholder(placeHolder == -1 ? R.drawable.media_gallery_placeholder : placeHolder)

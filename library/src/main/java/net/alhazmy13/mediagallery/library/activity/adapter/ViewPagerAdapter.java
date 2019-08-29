@@ -23,6 +23,7 @@ import net.alhazmy13.mediagallery.library.R;
 import net.alhazmy13.mediagallery.library.Utility;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
@@ -65,7 +66,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view == ((RelativeLayout) object);
+        return view == object;
     }
 
     @Override
@@ -73,9 +74,9 @@ public class ViewPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
         String o = mDataSet.get(position);
         boolean isImageValid;
-        imageView = (ImageView) itemView.findViewById(R.id.iv);
+        imageView = itemView.findViewById(R.id.iv);
 
-        if (Utility.isValidURL(o)) {
+        if (Utility.isValidURL(o) || new File(o).exists()) {
             Glide.with(activity)
                     .load(String.valueOf(mDataSet.get(position)))
                     .listener(new RequestListener<String, GlideDrawable>() {

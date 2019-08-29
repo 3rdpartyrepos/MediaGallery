@@ -15,6 +15,7 @@ import net.alhazmy13.mediagallery.library.Utility;
 import net.alhazmy13.mediagallery.library.views.MediaGalleryView;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -61,7 +62,7 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
         holder.image.setLayoutParams(params);
 
         String o = mDataset.get(holder.getAdapterPosition());
-        if (Utility.isValidURL(o)) {
+        if (Utility.isValidURL(o) || new File(o).exists()) {
             Glide.with(mContext)
                     .load(o)
                     .placeholder(imgPlaceHolderResId)
