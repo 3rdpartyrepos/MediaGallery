@@ -18,7 +18,6 @@ import java.util.ArrayList;
  * Created by alhazmy13 on 2/12/17.
  */
 public class MediaGalleryView extends RecyclerView {
-    private static final String TAG = "MediaGalleryView";
 
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;
