@@ -2,6 +2,7 @@ package net.alhazmy13.mediagallery;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 
@@ -9,6 +10,7 @@ import net.alhazmy13.mediagallery.library.activity.MediaGallery;
 import net.alhazmy13.mediagallery.library.views.MediaGalleryView;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,7 +20,15 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list = getFakeList();
+
+        File[] files = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/DCIM/Camera").listFiles();
+        if(files == null)
+            list = getFakeList();
+        else {
+            list = new ArrayList<>();
+            for(File f : files)
+                list.add(f.getAbsolutePath());
+        }
 
         MediaGalleryView view = findViewById(R.id.gallery);
         view.setImages(list);
@@ -30,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
 
     }
 
-    private ArrayList getFakeList() {
+    private ArrayList<String> getFakeList() {
         ArrayList<String> imagesList = new ArrayList<>();
         Bitmap image = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
         image.eraseColor(android.graphics.Color.CYAN);

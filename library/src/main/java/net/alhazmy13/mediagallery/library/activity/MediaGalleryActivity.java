@@ -43,9 +43,9 @@ public class MediaGalleryActivity extends BaseActivity implements ViewPager.OnPa
     }
 
     private void initViews() {
-        mViewPager = (CustomViewPager) findViewById(R.id.pager);
-        imagesHorizontalList = (RecyclerView) findViewById(R.id.imagesHorizontalList);
-        mMainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+        mViewPager = findViewById(R.id.pager);
+        imagesHorizontalList = findViewById(R.id.imagesHorizontalList);
+        mMainLayout = findViewById(R.id.mainLayout);
         if (backgroundColor != -1){
             mMainLayout.setBackgroundColor(ContextCompat.getColor(this,backgroundColor));
         }

@@ -3,18 +3,13 @@ package net.alhazmy13.mediagallery.library.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
-
 
 import net.alhazmy13.mediagallery.library.Constants;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class MediaGallery {

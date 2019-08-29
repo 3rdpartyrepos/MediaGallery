@@ -1,7 +1,6 @@
 package net.alhazmy13.mediagallery.library.activity.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.support.v7.widget.RecyclerView;
@@ -133,7 +132,7 @@ public class HorizontalListAdapters extends RecyclerView.Adapter<HorizontalListA
          */
         ViewHolder(View itemView) {
             super(itemView);
-            image = (ImageView) itemView.findViewById(R.id.iv);
+            image = itemView.findViewById(R.id.iv);
         }
     }
 
