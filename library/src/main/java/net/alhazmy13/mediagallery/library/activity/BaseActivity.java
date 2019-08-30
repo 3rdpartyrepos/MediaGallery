@@ -1,20 +1,19 @@
 package net.alhazmy13.mediagallery.library.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import net.alhazmy13.mediagallery.library.Constants;
 import net.alhazmy13.mediagallery.library.R;
 import java.util.ArrayList;
 
 
-abstract class BaseActivity extends AppCompatActivity {
+abstract class BaseActivity extends Activity {
     protected Toolbar mToolbar;
     protected ArrayList<String> dataSet;
     protected String title;
@@ -52,15 +51,6 @@ abstract class BaseActivity extends AppCompatActivity {
 
     private void initBaseViews() {
         mToolbar = findViewById(R.id.toolbar_media_gallery);
-        if (getSupportActionBar() != null) {
-            mToolbar.setVisibility(View.GONE);
-            getSupportActionBar().setTitle(String.valueOf(title));
-        } else {
-            setSupportActionBar(mToolbar);
-            mToolbar.setTitle(String.valueOf(title));
-        }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
 
