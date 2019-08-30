@@ -42,11 +42,11 @@ abstract class BaseActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent == null || intent.getExtras() == null) return;
         Bundle bundle = intent.getExtras();
-        dataSet = bundle.getStringArrayList(Constants.IMAGES);
-        title = bundle.getString(Constants.TITLE);
-        backgroundColor = bundle.getInt(Constants.BACKGROUND_COLOR,-1);
-        placeHolder = bundle.getInt(Constants.PLACE_HOLDER,-1);
-        selectedImagePosition = bundle.getInt(Constants.SELECTED_IMAGE_POSITION,0);
+        dataSet = bundle.getStringArrayList(Constants.IMAGES.name());
+        title = bundle.getString(Constants.TITLE.name());
+        backgroundColor = bundle.getInt(Constants.BACKGROUND_COLOR.name(),-1);
+        placeHolder = bundle.getInt(Constants.PLACE_HOLDER.name(),-1);
+        selectedImagePosition = bundle.getInt(Constants.SELECTED_IMAGE_POSITION.name(),0);
 
     }
 

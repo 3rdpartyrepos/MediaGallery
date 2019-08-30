@@ -60,11 +60,11 @@ public class MediaGallery {
         Intent intent = new Intent(mActivity, MediaGalleryActivity.class);
         Bundle bundle = new Bundle();
 
-        bundle.putStringArrayList(Constants.IMAGES, mDataset);
-        bundle.putString(Constants.TITLE, mTitle);
-        bundle.putInt(Constants.BACKGROUND_COLOR,mBackgroundColor);
-        bundle.putInt(Constants.PLACE_HOLDER,mPlaceHolder);
-        bundle.putInt(Constants.SELECTED_IMAGE_POSITION,mSelectedImagePosition);
+        bundle.putStringArrayList(Constants.IMAGES.name(), mDataset);
+        bundle.putString(Constants.TITLE.name(), mTitle);
+        bundle.putInt(Constants.BACKGROUND_COLOR.name(),mBackgroundColor);
+        bundle.putInt(Constants.PLACE_HOLDER.name(),mPlaceHolder);
+        bundle.putInt(Constants.SELECTED_IMAGE_POSITION.name(),mSelectedImagePosition);
         intent.putExtras(bundle);
         mActivity.startActivity(intent);
     }
